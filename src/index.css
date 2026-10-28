@@ -369,3 +369,216 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-
   font-weight: 600;
 }
 .how-to-order-button:hover { opacity: 0.92; }
+
+/* =========================================================
+   MOBILE / iPHONE FIXES
+   Keeps the existing Sugar Bliss design unchanged
+   ========================================================= */
+
+/* Prevent accidental horizontal overflow */
+html,
+body,
+#root,
+.site {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/*
+  Safari/iPhone can render ✳ as a colored emoji.
+  Replace the decorative character visually with a CSS-drawn star.
+*/
+.hero-note::before {
+  content: "✦";
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: normal;
+  font-variant-emoji: text;
+  font-size: 21px;
+  line-height: 1;
+  color: var(--gold);
+}
+
+/* Menu decorative symbol */
+.menu-ornament::after {
+  content: "✦";
+  font-family: Georgia, "Times New Roman", serif;
+  font-variant-emoji: text;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+  background: var(--cream);
+  color: var(--gold);
+  padding: 0 8px;
+  font-size: 13px;
+}
+
+/*
+  Remove the huge ✳ characters from the contact section.
+  These were the large green blocks appearing on iPhone.
+*/
+.order-section::before,
+.order-section::after {
+  content: "";
+  display: none;
+}
+
+/* Make media unable to force the page wider than the phone */
+img,
+svg {
+  max-width: 100%;
+}
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .site {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .topline {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Hero */
+  .hero {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-copy,
+  .hero-art {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+
+  .hero-text {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  /* Allow hero buttons to fit smaller iPhones */
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .hero-actions .button-main {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-note {
+    max-width: 100%;
+  }
+
+  /* Galleries */
+  .gallery-grid,
+  .menu-layout,
+  .menu-left-column,
+  .menu-right-column,
+  .menu-mini-gallery,
+  .menu-lower-gallery {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .gallery-card,
+  .menu-mini-photo,
+  .menu-lower-photo {
+    min-width: 0;
+  }
+
+  /* Menu rows */
+  .menu-row {
+    min-width: 0;
+  }
+
+  .menu-row > span {
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  .menu-row strong {
+    max-width: 150px;
+    white-space: normal;
+    text-align: right;
+  }
+
+  .category-title {
+    gap: 10px;
+  }
+
+  .category-title > span {
+    text-align: right;
+  }
+
+  /* How to order */
+  .how-to-order,
+  .how-to-order-heading,
+  .how-to-order-steps,
+  .how-to-step {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .how-to-order-button {
+    max-width: 100%;
+  }
+
+  /* Contact/order area */
+  .order-section,
+  .order-inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .order-inner > div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .order-actions {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .order-button {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .phone {
+    overflow-wrap: anywhere;
+  }
+
+  /* Footer */
+  .footer,
+  .footer-inner {
+    max-width: 100%;
+  }
+}
