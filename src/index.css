@@ -1880,3 +1880,41 @@ svg {
   transform: none !important;
   scale: 1 !important;
 }
+/* Make Custom Cakes and Celebration frames equal in height */
+:root {
+  --menu-frame-height: 600px;
+}
+
+@media (min-width: 1101px) {
+  .flavors-panel,
+  .celebration-panel {
+    height: var(--menu-frame-height) !important;
+    min-height: var(--menu-frame-height) !important;
+    box-sizing: border-box !important;
+  }
+
+  .celebration-panel {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .celebration-panel .menu-lower-gallery {
+    margin-top: auto !important;
+  }
+}
+
+/* Keep tablet and mobile layouts natural */
+@media (max-width: 1100px) {
+  .flavors-panel,
+  .celebration-panel {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}
+@media (min-width: 1101px) {
+  .celebration-panel {
+    height: 50x !important;
+    min-height: 50px !important;
+    box-sizing: border-box !important;
+  }
+}

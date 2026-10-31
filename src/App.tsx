@@ -220,9 +220,7 @@ card.style.setProperty('--hero-rotate-x', `${(0.5 - y) * 22}deg`);
         <ArrowUpRight size={17} />
       </span>
 
-      <span className="gallery-label">
-        {photo.title}
-      </span>
+      
     </button>
 
     <div className="gallery-description">
@@ -760,10 +758,7 @@ card.style.setProperty('--hero-rotate-x', `${(0.5 - y) * 22}deg`);
 
   <h3>Made for your celebration. <span className="menu-title-icon" aria-hidden="true">💕</span></h3>
 
-  <p>
-    Birthdays, anniversaries, engagements or simply a sweet surprise —
-    tell us what you are celebrating and we will make it feel like yours.
-  </p>
+  <p>From birthdays and anniversaries to life’s sweetest little moments</p>
 
   <div className="celebration-tags">
     <span>Birthdays</span>
