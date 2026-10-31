@@ -307,8 +307,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-
 /* How to Order: only fills the existing empty space below the right-side menu */
 .how-to-order {
   margin-top: 28px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(111, 46, 58, 0.18);
+  padding: 28px 32px;
+  background: #e9e0eb !important;
+  background-image: none !important;
+  opacity: 1 !important;
+  border: 1px solid rgba(111, 46, 58, 0.18);
+  box-sizing: border-box;
 }
 .how-to-order-heading {
   display: flex;
@@ -581,4 +585,1094 @@ svg {
   .footer-inner {
     max-width: 100%;
   }
+}
+
+/* =========================================================
+   CUSTOM CAKES — EXTRA DETAILS
+   ========================================================= */
+
+.flavor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flavor-new {
+  display: inline-block;
+  padding: 2px 5px;
+  border-radius: 20px;
+  background: var(--rose-deep);
+  color: #fff8f1;
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.custom-cake-details {
+  max-width: 290px;
+  margin: 20px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #c8a8b6;
+}
+
+.custom-cake-detail-heading {
+  color: var(--rose-deep);
+  font: italic 18px/1.2 var(--app-font-serif);
+  margin-bottom: 8px;
+}
+
+.custom-cake-details p {
+  margin: 0 auto;
+  max-width: 270px;
+  color: #765f6e;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.custom-cake-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.custom-cake-options span {
+  padding: 7px 8px;
+  border: 1px solid #cdb8cc;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.38);
+  color: #634757;
+  font-size: 9px;
+  letter-spacing: 0.02em;
+}
+
+.flavors-panel .flavor-bottom {
+  margin-top: 17px;
+}
+
+.flavors-panel .button-main {
+  margin-top: 13px;
+}
+
+@media (max-width: 640px) {
+  .custom-cake-details {
+    max-width: 100%;
+  }
+
+  .custom-cake-options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* =========================================================
+   GALLERY — PHOTO DESCRIPTIONS
+   ========================================================= */
+
+.gallery-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gallery-item .gallery-card {
+  width: 100%;
+}
+
+.gallery-description {
+  padding: 0 4px 6px;
+}
+
+.gallery-description h3 {
+  margin: 0 0 5px;
+  color: var(--ink);
+  font: 500 17px/1.25 var(--app-font-serif);
+}
+
+.gallery-description p {
+  margin: 0;
+  color: #806d77;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+/* Keep the first gallery photo larger */
+.gallery-item:first-child {
+  grid-row: span 2;
+}
+
+.gallery-item:first-child .gallery-card {
+  height: 535px;
+}
+
+/* Other gallery photos */
+.gallery-item:not(:first-child) .gallery-card {
+  height: 245px;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .gallery-item:first-child .gallery-card {
+    height: 480px;
+  }
+
+  .gallery-item:not(:first-child) .gallery-card {
+    height: 210px;
+  }
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .gallery-item:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .gallery-item:first-child .gallery-card,
+  .gallery-item:not(:first-child) .gallery-card {
+    height: 220px;
+  }
+
+  .gallery-description h3 {
+    font-size: 15px;
+  }
+
+  .gallery-description p {
+    font-size: 10.5px;
+    line-height: 1.6;
+  }
+}
+/* =========================================================
+   CUSTOMER REVIEWS — 5 CARD LAYOUT
+   ========================================================= */
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.review-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card p {
+  flex: 1;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   SUBTLE SCROLL ANIMATIONS
+   ========================================================= */
+
+.reveal-text {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal-text.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+/* Gallery & review card reveal animation */
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+/* Slower hero heading animation */
+#hero-heading.reveal-text {
+  transition:
+    opacity 1.3s ease,
+    transform 1.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+/* =========================================================
+   MENU SECTION — WIDER & BALANCED LAYOUT
+   ========================================================= */
+
+.menu-layout {
+  width: 100%;
+  max-width: 1450px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.35fr);
+  gap: 48px;
+}
+
+/* Give the menu content more breathing room */
+.menu-right-column {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Keep the cake/photo side balanced */
+.menu-left-column {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 1000px) {
+  .menu-layout {
+    gap: 32px;
+    grid-template-columns: minmax(270px, 0.85fr) minmax(0, 1.15fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-layout {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+/* =========================================================
+   CELEBRATION PANEL — THIRD MENU COLUMN
+   ========================================================= */
+
+/* Desktop: three balanced columns */
+.menu-layout {
+  max-width: 1500px;
+  grid-template-columns:
+    minmax(300px, 0.9fr)
+    minmax(380px, 1.2fr)
+    minmax(260px, 0.75fr);
+  gap: 38px;
+  align-items: start;
+}
+
+.celebration-panel {
+  padding: 34px 28px;
+  border: 1px solid #d8c6ce;
+  border-radius: 4px;
+  background: #f2e8ef;
+  text-align: center;
+}
+
+.celebration-kicker {
+  margin-bottom: 12px;
+  color: var(--rose-deep);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.celebration-panel h3 {
+  margin: 0;
+  color: var(--rose-deep);
+  font: italic 30px/1.08 var(--app-font-serif);
+}
+
+.celebration-panel > p {
+  max-width: 250px;
+  margin: 16px auto 0;
+  color: #765f6e;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.celebration-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.celebration-tags span {
+  padding: 8px 6px;
+  border: 1px solid #cfb9c4;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.4);
+  color: #684c5b;
+  font-size: 9px;
+}
+
+.celebration-note {
+  margin: 22px 0 16px;
+  padding-top: 18px;
+  border-top: 1px solid #cfb9c4;
+  color: #806a76;
+  font: italic 14px/1.5 var(--app-font-serif);
+}
+
+.celebration-panel .button-main {
+  width: 100%;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+/* Tablet — return to two columns */
+@media (max-width: 1100px) {
+  .menu-layout {
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .celebration-panel {
+    grid-column: 1 / -1;
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .menu-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .celebration-panel {
+    grid-column: auto;
+    max-width: 100%;
+    padding: 28px 20px;
+  }
+}
+/* =========================================================
+   MENU — USE MORE DESKTOP WIDTH
+   ========================================================= */
+
+@media (min-width: 1101px) {
+  .menu-layout {
+    width: min(1400px, calc(100vw - 80px));
+    max-width: none;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    grid-template-columns:
+      minmax(320px, 0.9fr)
+      minmax(430px, 1.25fr)
+      minmax(300px, 0.8fr);
+
+    gap: 42px;
+    align-items: start;
+  }
+}
+/* ===== Sugar Bliss final menu layout ===== */
+.menu-layout {
+  max-width: 1500px;
+  grid-template-columns: minmax(300px, .9fr) minmax(400px, 1.2fr) minmax(300px, .9fr);
+  gap: 38px;
+  align-items: start;
+}
+
+.menu-left-column,
+.menu-right-column,
+.celebration-panel {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Keep both lavender cards aligned from the top */
+.flavors-panel,
+.celebration-panel {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* The 3 custom-cake photos now belong INSIDE the lavender card */
+.flavors-panel .menu-mini-gallery {
+  margin: 24px -30px -26px;
+  width: calc(100% + 60px);
+  grid-template-rows: 150px 150px;
+  gap: 7px;
+}
+
+.flavors-panel .menu-mini-photo {
+  border-radius: 0;
+}
+
+/* The 4 celebration photos stay INSIDE the right lavender card */
+.celebration-panel .menu-lower-gallery {
+  margin: 24px -28px -34px;
+  width: calc(100% + 56px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.celebration-panel .menu-lower-photo {
+  height: 165px;
+  border-radius: 0;
+}
+
+.menu-title-emoji {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: .65em;
+  vertical-align: .12em;
+}
+
+/* How to Order spans the complete width below all 3 columns */
+.menu-how-to-order {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 20px;
+  padding: 28px 30px 26px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.menu-how-to-order .how-to-order-heading {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+}
+
+.menu-how-to-order .how-to-order-heading h3 {
+  font-size: 2rem;
+}
+
+.menu-how-to-order .how-to-order-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 20px;
+}
+
+.menu-how-to-order .how-to-step {
+  border-bottom: 0;
+  border-right: 1px solid rgba(111, 46, 58, .14);
+  padding: 10px 24px 10px 0;
+}
+
+.menu-how-to-order .how-to-step:last-child {
+  border-right: 0;
+}
+
+.menu-how-to-order .how-to-order-button {
+  display: flex;
+  width: fit-content;
+  margin: 22px auto 0;
+}
+
+@media (max-width: 1100px) {
+  .menu-layout {
+    grid-template-columns: minmax(280px, .9fr) minmax(0, 1.1fr);
+    gap: 30px;
+  }
+
+  .celebration-panel,
+  .menu-how-to-order {
+    grid-column: 1 / -1;
+  }
+
+  .celebration-panel {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .celebration-panel,
+  .menu-how-to-order {
+    grid-column: auto;
+  }
+
+  .flavors-panel .menu-mini-gallery {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -24px;
+    width: calc(100% + 40px);
+    grid-template-rows: 125px 125px;
+  }
+
+  .celebration-panel .menu-lower-gallery {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -28px;
+    width: calc(100% + 40px);
+  }
+
+  .celebration-panel .menu-lower-photo {
+    height: 145px;
+  }
+
+  .menu-how-to-order {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .menu-how-to-order .how-to-order-steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .menu-how-to-order .how-to-step {
+    border-right: 0;
+    border-bottom: 1px solid rgba(111, 46, 58, .10);
+    padding: 13px 0;
+  }
+
+  .menu-how-to-order .how-to-order-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* ===== FINAL MENU CENTERING FIX ===== */
+
+@media (min-width: 1101px) {
+  .menu-layout {
+    width: min(1400px, calc(100vw - 80px)) !important;
+    max-width: 1400px !important;
+
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+/* ===== FORCE MENU TO TRUE CENTER ===== */
+
+@media (min-width: 1101px) {
+  .menu-section .menu-layout {
+    width: min(1400px, calc(100vw - 80px)) !important;
+    max-width: 1400px !important;
+
+    position: relative !important;
+    left: 50% !important;
+    right: auto !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    transform: translateX(-50%) !important;
+  }
+
+  .menu-section .menu-how-to-order {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+  }
+
+  /* Both purple cards end at the same level */
+  .menu-section .flavors-panel,
+  .menu-section .celebration-panel {
+    height: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+/* ===== TRUE CENTER FIX ===== */
+
+@media (min-width: 1101px) {
+
+  .menu-section > .section-inner {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-section .menu-head {
+    max-width: 650px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .menu-section .menu-layout {
+    width: min(1400px, 100%) !important;
+    max-width: 1400px !important;
+
+    margin: 40px auto 0 !important;
+
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+
+    grid-template-columns:
+      minmax(300px, 0.9fr)
+      minmax(400px, 1.2fr)
+      minmax(300px, 0.9fr) !important;
+  }
+
+  .menu-section .menu-how-to-order {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+  }
+}
+/* ===== MATCH PURPLE CARDS NATURALLY ===== */
+
+@media (min-width: 1101px) {
+
+  .menu-section .menu-layout {
+    align-items: stretch !important;
+  }
+
+  .menu-section .menu-left-column {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .menu-section .flavors-panel,
+  .menu-section .celebration-panel {
+    height: 100% !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .menu-section .celebration-panel {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .menu-section .celebration-panel .menu-lower-gallery {
+    margin-top: auto !important;
+    padding-top: 20px !important;
+  }
+}
+/* ===== PURPLE CARDS HEIGHT FIX ===== */
+
+@media (min-width: 1101px) {
+
+  .menu-section .menu-layout {
+    align-items: start !important;
+  }
+
+  .menu-section .menu-left-column {
+    height: auto !important;
+    align-self: start !important;
+  }
+
+  .menu-section .flavors-panel,
+  .menu-section .celebration-panel {
+    height: auto !important;
+    min-height: 0 !important;
+    align-self: start !important;
+  }
+
+  .menu-section .celebration-panel {
+    display: block !important;
+  }
+
+  .menu-section .celebration-panel .menu-lower-gallery {
+    margin-top: 20px !important;
+    padding-top: 0 !important;
+  }
+}
+/* ===== FINAL CARD HEIGHT ALIGNMENT - KEEP PHOTOS LARGE ===== */
+
+@media (min-width: 1101px) {
+
+  /* Cards ko natural height par wapas lao */
+  .menu-section .flavors-panel,
+  .menu-section .celebration-panel {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+
+  .menu-section .flavors-panel {
+    display: block !important;
+  }
+
+  .menu-section .celebration-panel {
+    display: block !important;
+  }
+
+  /* LEFT 3 PHOTOS — original sizing ko touch nahi karna */
+  .menu-section .flavors-panel .menu-mini-gallery {
+    margin-top: 20px !important;
+  }
+
+  /* RIGHT 4 PHOTOS — slightly taller so both cards end together */
+  .menu-section .celebration-panel .menu-lower-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 4px !important;
+    margin-top: 20px !important;
+    padding-top: 0 !important;
+  }
+
+  .menu-section .celebration-panel .menu-lower-photo {
+   height: 150px !important;
+    overflow: hidden !important;
+  }
+
+  .menu-section .celebration-panel .menu-lower-photo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+}/* ===== EQUAL PURPLE CARDS — KEEP PHOTO SIZE SAME ===== */
+
+@media (min-width: 1101px) {
+
+  /* Right card ko left card jitna tall karo */
+  .menu-section .celebration-panel {
+    min-height: 630px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Extra space ko content ke beech naturally distribute karo */
+  .menu-section .celebration-panel {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .menu-section .celebration-panel .menu-lower-gallery {
+    margin-top: auto !important;
+  }
+
+  /* PHOTOS KI SIZE SAME */
+  .menu-section .celebration-panel .menu-lower-photo {
+    height: 220px !important;
+  }
+}
+/* Celebration extra message */
+
+.celebration-extra {
+
+  margin: 6px auto 8px;
+  max-width: 260px;
+  text-align: center;
+}
+
+.celebration-extra h4 {
+  margin: 0 0 3px;
+  color: var(--rose-deep);
+  font: italic 16px/1.2 var(--app-font-serif);
+}
+
+.celebration-extra p {
+  margin: 0;
+  color: #765f6e;
+  font-size: 10px;
+  line-height: 1.35;
+}
+/* ===== REMOVE HOW TO ORDER OUTER BOX - FINAL OVERRIDE ===== */
+
+.menu-section .menu-layout .menu-how-to-order {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.menu-section .menu-layout .menu-how-to-order::before,
+.menu-section .menu-layout .menu-how-to-order::after {
+  content: none !important;
+  display: none !important;
+}
+/* How to Order — larger, more readable text */
+
+.menu-how-to-order .how-to-step strong {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
+
+.menu-how-to-order .how-to-step p {
+  font-size: 0.85rem !important;
+  line-height: 1.6 !important;
+}
+/* ===== NEW HOW TO ORDER ===== */
+
+.order-guide-section {
+  width: 100%;
+  background: transparent;
+  padding: 28px 40px 60px;
+  box-sizing: border-box;
+}
+
+.order-guide-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.order-guide-eyebrow {
+  margin: 0 0 14px;
+  color: var(--rose-deep);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.order-guide-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.order-guide-header h2 {
+  margin: 0;
+  color: var(--ink);
+  font: 500 clamp(39px, 5vw, 64px)/1.04 var(--app-font-serif);
+  letter-spacing: -0.02em;
+}
+
+.order-guide-link {
+  color: var(--rose-deep);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-bottom: 7px;
+}
+
+.order-guide-link:hover {
+  opacity: 0.7;
+}
+
+.order-guide-line {
+  width: 100%;
+  height: 1px;
+  margin: 26px 0 38px;
+  background: var(--rose-deep);
+  opacity: 0.28;
+}
+
+.order-guide-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 54px;
+}
+
+.order-guide-step {
+  position: relative;
+  padding-left: 46px;
+}
+
+.order-guide-number {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  color: var(--rose-deep);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.order-guide-step h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font: 500 1.55rem/1.15 var(--app-font-serif);
+}
+
+.order-guide-step p {
+  max-width: 270px;
+  margin: 0;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  opacity: 0.72;
+}
+
+
+/* ===== HOW TO ORDER — MOBILE ===== */
+
+@media (max-width: 700px) {
+
+  .order-guide-section {
+    padding: 52px 24px 56px;
+  }
+
+  .order-guide-header {
+    display: block;
+  }
+
+  .order-guide-header h2 {
+    font-size: clamp(39px, 12vw, 52px);
+  }
+
+  .order-guide-link {
+    display: inline-block;
+    margin-top: 18px;
+  }
+
+  .order-guide-line {
+    margin: 24px 0 30px;
+  }
+
+  .order-guide-steps {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .order-guide-step {
+    padding-left: 42px;
+  }
+
+  .order-guide-step p {
+    max-width: 100%;
+  }
+}
+.menu-how-to-order .how-to-number {
+  font-size: 0.9rem !important;
+}
+
+.menu-how-to-order .how-to-kicker {
+  font-size: 0.72rem !important;
+}
+.menu-how-to-order .how-to-order-heading h3 {
+  color: var(--ink) !important;
+  font: 700 clamp(39px, 5vw, 64px)/1.04 var(--app-font-serif) !important;
+  letter-spacing: 0.02em !important;
+}.menu-how-to-order .how-to-order-heading {
+  margin-bottom: 28px !important;
+}
+/* ===== HOW TO ORDER — ALIGN EXACTLY WITH MENU ===== */
+
+@media (min-width: 1101px) {
+
+  .order-guide-section {
+    width: 100% !important;
+    padding: 12px 40px 45px !important;
+    box-sizing: border-box !important;
+  }
+
+  .order-guide-inner {
+    width: min(1400px, 100%) !important;
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+/* Reduce only the space below the menu section */
+.menu-section {
+  padding-bottom: 10px !important;
+}
+/* Right celebration card — use same font family as left card */
+.celebration-panel h3,
+.celebration-extra h4 {
+  font-family: var(--app-font-serif) !important;
+}
+/* Story section — slower reveal */
+.story-section .reveal-text {
+  transition-duration: 1.4s !important;
+}
+/* ===== HERO PHOTO — ADVANCED CURSOR HOVER ===== */
+
+.hero-art {
+  --hero-x: 50%;
+  --hero-y: 50%;
+  --hero-rotate-x: 0deg;
+  --hero-rotate-y: 0deg;
+
+  transform:
+    perspective(1000px)
+    rotateX(var(--hero-rotate-x))
+    rotateY(var(--hero-rotate-y));
+
+  transform-style: preserve-3d;
+  transition:
+    transform 0.18s ease-out,
+    filter 0.35s ease;
+  will-change: transform;
+}
+
+.hero-art:hover {
+ .hero-art:hover {
+  transform:
+    perspective(1000px)
+    rotateX(var(--hero-rotate-x))
+    rotateY(var(--hero-rotate-y))
+    translateY(-8px);
+
+  filter: drop-shadow(0 22px 22px rgba(70, 45, 60, 0.14));
+}
+}
+
+/* ===== MOBILE MENU BUTTON — KEEP FIXED IN HEADER ===== */
+@media (max-width: 640px) {
+  .header {
+    position: relative;
+  }
+
+  .menu-toggle {
+    position: absolute !important;
+    right: 6% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+    z-index: 20;
+  }
+
+  .menu-toggle svg {
+    display: block;
+  }
+}
+/* ===== MOBILE PURPLE CARD PHOTOS — FULL WIDTH FIX ===== */
+@media (max-width: 640px) {
+  .flavors-panel .menu-mini-gallery,
+  .celebration-panel .menu-lower-gallery {
+    width: calc(100% + 40px) !important;
+    max-width: none !important;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+  }
+}
+.reviews-section .section-kicker {
+  position: relative;
+  top: -12px;
 }
