@@ -1359,7 +1359,7 @@ svg {
 
   /* Right card ko left card jitna tall karo */
   .menu-section .celebration-panel {
-    min-height: 630px !important;
+    min-height: 30px !important;
     box-sizing: border-box !important;
   }
 
@@ -1863,4 +1863,20 @@ svg {
     font-size: 8px;
     letter-spacing: 0.1em;
   }
+}
+/* Custom Cakes and Celebration photos */
+.menu-mini-photo,
+.menu-mini-photo img,
+.menu-lower-photo,
+.menu-lower-photo img {
+  cursor: default !important;
+}
+
+/* Remove hover zoom */
+.menu-mini-photo:hover,
+.menu-mini-photo:hover img,
+.menu-lower-photo:hover,
+.menu-lower-photo:hover img {
+  transform: none !important;
+  scale: 1 !important;
 }
