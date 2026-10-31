@@ -1,3 +1,42 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<svg width="180" height="180" viewBox="0 0 180 180"
+     fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Purple background -->
+  <rect width="180" height="180" rx="36" fill="#70506E"/>
+
+  <!-- Cupcake frosting -->
+  <path
+    d="M50 91
+       C40 87 39 76 46 69
+       C50 65 56 63 62 64
+       C61 52 70 44 81 46
+       C86 34 102 32 111 43
+       C123 41 133 49 133 61
+       C145 65 147 79 137 87
+       C133 90 129 91 125 91 Z"
+    fill="#F7C7D5"/>
+
+  <!-- Cupcake base -->
+  <path
+    d="M55 94 H125 L115 137
+       C99 147 81 147 65 137 Z"
+    fill="#FFF8F0"/>
+
+  <!-- Cupcake details -->
+  <path
+    d="M77 101 L80 135 M90 101 V139 M103 101 L100 135"
+    stroke="#D9B9C8"
+    stroke-width="4"
+    stroke-linecap="round"/>
+
+  <!-- Golden cherry -->
+  <path
+    d="M92 35 C94 28 100 26 105 28"
+    stroke="#F6D28A"
+    stroke-width="4"
+    stroke-linecap="round"/>
+
+  <circle cx="88" cy="40" r="9" fill="#F6D28A"/>
+  <circle cx="85" cy="37" r="2.5" fill="#FFF8F0"/>
+
 </svg>
